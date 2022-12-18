@@ -33,9 +33,6 @@ PhotonCamera = "photonlib/PhotonCamera.h"
 PhotonPipelineResult = "photonlib/PhotonPipelineResult.h"
 PhotonTrackedTarget = "photonlib/PhotonTrackedTarget.h"
 PhotonUtils = "photonlib/PhotonUtils.h"
-SimPhotonCamera = "photonlib/SimPhotonCamera.h"
-SimVisionSystem = "photonlib/SimVisionSystem.h"
-SimVisionTarget = "photonlib/SimVisionTarget.h"
 
 [tool.robotpy-build.metadata]
 name = "robotpy-photonvision"
