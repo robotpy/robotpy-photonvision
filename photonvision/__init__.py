@@ -8,9 +8,6 @@ from ._photonvision import (
     PhotonPipelineResult,
     PhotonTrackedTarget,
     PhotonUtils,
-    SimPhotonCamera,
-    SimVisionSystem,
-    SimVisionTarget,
 )
 
 __all__ = [
@@ -20,9 +17,6 @@ __all__ = [
     "PhotonPipelineResult",
     "PhotonTrackedTarget",
     "PhotonUtils",
-    "SimPhotonCamera",
-    "SimVisionSystem",
-    "SimVisionTarget",
 ]
 
 try:
