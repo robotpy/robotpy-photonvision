@@ -7,9 +7,11 @@ classes:
       PhotonPipelineResult:
         overloads:
           "":
-          units::second_t, wpi::span<const PhotonTrackedTarget>:
+          units::second_t, std::span<const PhotonTrackedTarget>:
       GetBestTarget:
       GetLatency:
+      GetTimestamp:
+      SetTimestamp:
       HasTargets:
       GetTargets:
       operator==:

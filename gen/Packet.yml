@@ -7,7 +7,7 @@ classes:
       Packet:
         overloads:
           "":
-          std::vector<char>:
+          std::vector<uint8_t>:
       Clear:
       GetData:
       GetDataSize:

@@ -4,11 +4,14 @@ classes:
   SimVisionTarget:
     shared_ptr: true
     attributes:
-      targetPos:
-      targetHeightAboveGround:
+      targetPose:
       targetWidth:
       targetHeight:
-      targetInfill_pct:
-      tgtArea:
+      targetArea:
+      targetId:
     methods:
       SimVisionTarget:
+        overloads:
+          "":
+            ignore: true  # default ctor
+          frc::Pose3d, units::meter_t, units::meter_t, int:

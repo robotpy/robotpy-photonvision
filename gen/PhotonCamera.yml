@@ -5,11 +5,30 @@ enums:
 classes:
   PhotonCamera:
     shared_ptr: true
+    attributes:
+      test:
+      testResult:
+      mainTable:
+      rootTable:
+      rawBytesEntry:
+      driverModeEntry:
+      inputSaveImgEntry:
+      outputSaveImgEntry:
+      pipelineIndexEntry:
+      ledModeEntry:
+      versionEntry:
+      driverModeSubscriber:
+      pipelineIndexSubscriber:
+      ledModeSubscriber:
+      path:
+      m_cameraName:
+        ignore: true
+      packet:
     methods:
       PhotonCamera:
         overloads:
-          std::shared_ptr<nt::NetworkTableInstance>, std::string&:
-          std::string&:
+          std::shared_ptr<nt::NetworkTableInstance>, std::string_view:
+          std::string_view:
       GetLatestResult:
       SetDriverMode:
       GetDriverMode:
@@ -19,5 +38,6 @@ classes:
       GetPipelineIndex:
       GetLEDMode:
       SetLEDMode:
+      GetCameraName:
       HasTargets:
       SetVersionCheckEnabled:
