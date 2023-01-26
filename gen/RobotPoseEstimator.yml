@@ -4,6 +4,7 @@ extra_includes:
 
 enums:
   PoseStrategy:
+    ignore: true  # duplicated in PhotonPoseEstimator.h
 classes:
   RobotPoseEstimator:
     force_type_casters:

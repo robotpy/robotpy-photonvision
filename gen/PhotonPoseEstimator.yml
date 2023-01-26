@@ -17,6 +17,12 @@ classes:
   PhotonPoseEstimator:
     methods:
       PhotonPoseEstimator:
+        cpp_code: |
+          [](frc::AprilTagFieldLayout aprilTags, photonlib::PoseStrategy strategy,
+             PhotonCamera& camera, frc::Transform3d robotToCamera) {
+            return std::make_unique<PhotonPoseEstimator>(
+              aprilTags, strategy, std::move(camera), robotToCamera);
+          }
       GetFieldLayout:
       GetPoseStrategy:
       SetPoseStrategy:
@@ -25,3 +31,4 @@ classes:
       SetLastPose:
       Update:
       GetCamera:
+        return_value_policy: reference_internal
