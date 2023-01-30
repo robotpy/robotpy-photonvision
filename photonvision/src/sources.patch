@@ -1,0 +1,41 @@
+From bb4a45a6ce4f7e7f63eeed410cbdc4ed927586df Mon Sep 17 00:00:00 2001
+From: David Vo <auscompgeek@users.noreply.github.com>
+Date: Mon, 30 Jan 2023 16:23:39 +1100
+Subject: [PATCH] PhotonPoseEstimator: Take shared_ptr<PhotonCamera>
+
+---
+ photonlib/PhotonPoseEstimator.cpp | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/photonlib/PhotonPoseEstimator.cpp b/photonlib/PhotonPoseEstimator.cpp
+index 3b4f27807371..272e41c50672 100644
+--- a/photonlib/PhotonPoseEstimator.cpp
++++ b/photonlib/PhotonPoseEstimator.cpp
+@@ -42,21 +42,22 @@
+ #include "photonlib/PhotonPipelineResult.h"
+ #include "photonlib/PhotonTrackedTarget.h"
+ 
+ namespace photonlib {
+ PhotonPoseEstimator::PhotonPoseEstimator(frc::AprilTagFieldLayout tags,
+-                                         PoseStrategy strat, PhotonCamera&& cam,
++                                         PoseStrategy strat,
++                                         std::shared_ptr<PhotonCamera> cam,
+                                          frc::Transform3d robotToCamera)
+     : aprilTags(tags),
+       strategy(strat),
+       camera(std::move(cam)),
+       m_robotToCamera(robotToCamera),
+       lastPose(frc::Pose3d()),
+       referencePose(frc::Pose3d()) {}
+ 
+ std::optional<EstimatedRobotPose> PhotonPoseEstimator::Update() {
+-  auto result = camera.GetLatestResult();
++  auto result = camera->GetLatestResult();
+ 
+   if (!result.HasTargets()) {
+     return std::nullopt;
+   }
+ 
+-- 
+2.39.1
+

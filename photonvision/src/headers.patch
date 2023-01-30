@@ -1,0 +1,54 @@
+From bb4a45a6ce4f7e7f63eeed410cbdc4ed927586df Mon Sep 17 00:00:00 2001
+From: David Vo <auscompgeek@users.noreply.github.com>
+Date: Mon, 30 Jan 2023 16:23:39 +1100
+Subject: [PATCH] PhotonPoseEstimator: Take shared_ptr<PhotonCamera>
+
+---
+ photonlib/PhotonPoseEstimator.h | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/photonlib/PhotonPoseEstimator.h b/photonlib/PhotonPoseEstimator.h
+index 16e18b9ae8b7..7a85538daa3e 100644
+--- a/photonlib/PhotonPoseEstimator.h
++++ b/photonlib/PhotonPoseEstimator.h
+@@ -79,13 +79,14 @@ class PhotonPoseEstimator {
+    * @param strategy The strategy it should use to determine the best pose.
+    * @param camera PhotonCameras and
+    * @param robotToCamera Transform3d from the center of the robot to the camera
+    * mount positions (ie, robot ➔ camera).
+    */
+-  explicit PhotonPoseEstimator(frc::AprilTagFieldLayout aprilTags,
+-                               PoseStrategy strategy, PhotonCamera&& camera,
+-                               frc::Transform3d robotToCamera);
++  PhotonPoseEstimator(frc::AprilTagFieldLayout aprilTags,
++                      PoseStrategy strategy,
++                      std::shared_ptr<PhotonCamera> camera,
++                      frc::Transform3d robotToCamera);
+ 
+   /**
+    * Get the AprilTagFieldLayout being used by the PositionEstimator.
+    *
+    * @return the AprilTagFieldLayout
+@@ -135,17 +136,17 @@ class PhotonPoseEstimator {
+    * Update the pose estimator. Internally grabs a new PhotonPipelineResult from
+    * the camera and process it.
+    */
+   std::optional<EstimatedRobotPose> Update();
+ 
+-  inline PhotonCamera& GetCamera() { return camera; }
++  inline std::shared_ptr<PhotonCamera> GetCamera() { return camera; }
+ 
+  private:
+   frc::AprilTagFieldLayout aprilTags;
+   PoseStrategy strategy;
+ 
+-  PhotonCamera camera;
++  std::shared_ptr<PhotonCamera> camera;
+   frc::Transform3d m_robotToCamera;
+ 
+   frc::Pose3d lastPose;
+   frc::Pose3d referencePose;
+ 
+-- 
+2.39.1
+
