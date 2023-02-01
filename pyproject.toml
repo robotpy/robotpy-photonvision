@@ -28,7 +28,7 @@ base_package = "photonvision"
 artifact_id = "PhotonLib-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
-version = "v2023.2.1"
+version = "v2023.2.2"
 
 libs = ["Photon"]
 
