@@ -28,10 +28,8 @@ base_package = "photonvision"
 artifact_id = "PhotonLib-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
-# NB: keep photonvision/PhotonVersion.h in sync
-version = "v2023.2.1"
+version = "v2023.2.2"
 use_sources = true
-sources_classifier = "source"
 sources = [
     "photonlib/PhotonCamera.cpp",
     "photonlib/PhotonPipelineResult.cpp",
