@@ -20,6 +20,7 @@ classes:
       ledModeEntry:
       versionEntry:
       driverModeSubscriber:
+      driverModePublisher:
       pipelineIndexSubscriber:
       ledModeSubscriber:
       m_topicNameSubscriber:
