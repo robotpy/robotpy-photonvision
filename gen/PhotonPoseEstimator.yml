@@ -22,6 +22,8 @@ classes:
       SetPoseStrategy:
       GetReferencePose:
       SetReferencePose:
+      GetRobotToCameraTransform:
+      SetRobotToCameraTransform:
       SetLastPose:
       Update:
       GetCamera:

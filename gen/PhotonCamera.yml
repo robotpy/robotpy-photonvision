@@ -16,8 +16,10 @@ classes:
       inputSaveImgSubscriber:
       outputSaveImgEntry:
       outputSaveImgSubscriber:
-      pipelineIndexEntry:
-      ledModeEntry:
+      pipelineIndexPub:
+      pipelineIndexSub:
+      ledModePub:
+      ledModeSub:
       versionEntry:
       driverModeSubscriber:
       driverModePublisher:
