@@ -24,19 +24,31 @@ install_requires = [
 [tool.robotpy-build]
 base_package = "photonvision"
 
-[tool.robotpy-build.static_libs."photonlib".maven_lib_download]
+[tool.robotpy-build.wrappers."photonvision".maven_lib_download]
 artifact_id = "PhotonLib-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/snapshots"
 version = "dev-v2023.3.0-8-g3edc8750"
 
-libs = ["Photon"]
+use_sources = true
+sources = [
+    "photonlib/PhotonCamera.cpp",
+    "photonlib/PhotonPipelineResult.cpp",
+    "photonlib/PhotonPoseEstimator.cpp",
+    "photonlib/PhotonTrackedTarget.cpp",
+    "photonlib/RobotPoseEstimator.cpp",
+]
+
+[[tool.robotpy-build.wrappers."photonvision".maven_lib_download.patches]]
+patch = "photonvision/src/sources.patch"
+
+[[tool.robotpy-build.wrappers."photonvision".maven_lib_download.header_patches]]
+patch = "photonvision/src/headers.patch"
 
 [tool.robotpy-build.wrappers."photonvision"]
 name = "photonvision"
 
 depends = [
-    "photonlib",
     "apriltag",
     "wpilibc",
     "wpimath_geometry",
@@ -57,7 +69,7 @@ generation_data = "gen"
 Packet = "photonlib/Packet.h"
 PhotonCamera = "photonlib/PhotonCamera.h"
 PhotonPipelineResult = "photonlib/PhotonPipelineResult.h"
-#PhotonPoseEstimator = "photonlib/PhotonPoseEstimator.h"
+PhotonPoseEstimator = "photonlib/PhotonPoseEstimator.h"
 PhotonTargetSortMode = "photonlib/PhotonTargetSortMode.h"
 PhotonTrackedTarget = "photonlib/PhotonTrackedTarget.h"
 PhotonUtils = "photonlib/PhotonUtils.h"
